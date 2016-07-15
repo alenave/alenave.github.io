@@ -1,1 +1,41 @@
-Hello World!
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Intellicar</title>
+  <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAiIFdbrRj9f4fQyNQZtb4fGbbekxNE6iQ",
+    authDomain: "testnews-616cd.firebaseapp.com",
+    databaseURL: "https://testnews-616cd.firebaseio.com",
+    storageBucket: "testnews-616cd.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+  <script type="text/javascript">
+    function submitFeed() {
+      var newPostKey = firebase.database().ref().child('/list/news').push().key;
+      console.log(document.getElementById("title").value);
+      var feed = {
+        title: document.getElementById("title").value,
+        description: document.getElementById("description").value,
+        image: document.getElementById("image").value
+      }
+      var updates = {};
+      updates['/list/news/' + newPostKey] = feed;
+      firebase.database().ref().update(updates);
+    }
+  </script>
+</head>
+<body>
+  <form action="" autocomplete="on">
+    Title:<input type="text" id="title" name="title"><br>
+    Image: <input type="text" id="image" name="image"><br>
+    Description: <textarea id="description" name="description" cols="40" rows="5"></textarea><br>
+    <input type="button" onClick="submitFeed()" value="submit">
+  </form>
+</div>
+</body>
+</html>
