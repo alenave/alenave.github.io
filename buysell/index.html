@@ -18,6 +18,7 @@
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/buysell').push().key;
       var feed = {
+        transaction: document.getElementById("transaction").value,
         company: document.getElementById("company").value,
         product: document.getElementById("product").value,
         made: document.getElementById("made").value,
@@ -35,6 +36,7 @@
 </head>
 <body>
   <form action="" autocomplete="on">
+    Transaction: <input type="text" id="tramsaction"><br>
     Company:<input type="text" id="company"><br>
     Product: <input type="text" id="product"><br>
     Image: <input type="text" id="image"><br>
