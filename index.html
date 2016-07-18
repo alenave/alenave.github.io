@@ -21,7 +21,8 @@
       var feed = {
         title: document.getElementById("title").value,
         description: document.getElementById("description").value,
-        image: document.getElementById("image").value
+        image: document.getElementById("image").value,
+        news-source: document.getElementById("news-source").value
       }
       var updates = {};
       updates['/list/news/' + newPostKey] = feed;
@@ -34,6 +35,7 @@
     Title:<input type="text" id="title" name="title"><br>
     Image: <input type="text" id="image" name="image"><br>
     Description: <textarea id="description" name="description" cols="40" rows="5"></textarea><br>
+    News Source: <input type="text" id="news-source" name="news-source"><br>
     <input type="button" onClick="submitFeed()" value="submit">
   </form>
 </div>
