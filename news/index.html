@@ -17,7 +17,6 @@
   <script type="text/javascript">
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/news').push().key;
-      console.log(document.getElementById("title").value);
       var feed = {
         title: document.getElementById("title").value,
         description: document.getElementById("description").value,
