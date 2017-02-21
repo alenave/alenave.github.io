@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Marriag</title>
+  <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAyR6zvi5V5cl-Y88B3YBESFi6kjEzoMUE",
+    authDomain: "marriage-64a07.firebaseapp.com",
+    databaseURL: "https://marriage-64a07.firebaseio.com/",
+    storageBucket: "marriage-64a07.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+  <script type="text/javascript">
+    function submitFeed() {
+      var newPostKey = firebase.database().ref().child('/pics').push().key;
+      var feed = {
+        // title: document.getElementById("title").value,
+//         description: document.getElementById("description").value,
+        image: document.getElementById("image").value,
+        // newssource: document.getElementById("newssource").value
+      }
+      var updates = {};
+      updates['/pics/' + newPostKey] = feed;
+      firebase.database().ref().update(updates);
+    }
+  </script>
+</head>
+<body>
+  <form action="" autocomplete="on">
+    <!-- Title:<input type="text" id="title" name="title"><br> -->
+    Image Url: <input type="text" id="image" name="image"><br>
+    <!-- News Source: <input type="text" id="newssource" name="newssource"><br> -->
+<!--     Description: <textarea id="description" name="description" cols="40" rows="5"></textarea><br> -->
+    <input type="button" onClick="submitFeed()" value="submit">
+  </form>
+</div>
+</body>
+</html>
