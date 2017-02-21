@@ -18,7 +18,7 @@
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/allnews').push().key;
       var feed = {
-        channel_name: document.getElementById("name").value,
+        channelname: document.getElementById("name").value,
         image: document.getElementById("image").value,
         url: document.getElementById("url").value
       }
@@ -30,7 +30,7 @@
 </head>
 <body>
   <form action="" autocomplete="on">
-    Channel Name:<input type="text" id="channel_name" name="channel_name"><br>
+    Channel Name:<input type="text" id="channelname" name="channelname"><br>
     Image: <input type="text" id="image" name="image"><br>
     Url: <input type="text" id="url" name="url"><br>
     <input type="button" onClick="submitFeed()" value="submit">
