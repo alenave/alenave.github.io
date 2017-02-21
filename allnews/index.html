@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News</title>
+  <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAiIFdbrRj9f4fQyNQZtb4fGbbekxNE6iQ",
+    authDomain: "testnews-616cd.firebaseapp.com",
+    databaseURL: "https://testnews-616cd.firebaseio.com",
+    storageBucket: "testnews-616cd.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+  <script type="text/javascript">
+    function submitFeed() {
+      var newPostKey = firebase.database().ref().child('/list/allnews').push().key;
+      var feed = {
+        channel_name: document.getElementById("name").value,
+        image: document.getElementById("image").value,
+        url: document.getElementById("url").value
+      }
+      var updates = {};
+      updates['/list/allnews/' + newPostKey] = feed;
+      firebase.database().ref().update(updates);
+    }
+  </script>
+</head>
+<body>
+  <form action="" autocomplete="on">
+    Channel Name:<input type="text" id="channel_name" name="channel_name"><br>
+    Image: <input type="text" id="image" name="image"><br>
+    Url: <input type="text" id="url" name="url"><br>
+    <input type="button" onClick="submitFeed()" value="submit">
+  </form>
+</div>
+</body>
+</html>
