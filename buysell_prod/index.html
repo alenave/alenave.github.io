@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buy Sell</title>
+  <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAiIFdbrRj9f4fQyNQZtb4fGbbekxNE6iQ",
+    authDomain: "testnews-616cd.firebaseapp.com",
+    databaseURL: "https://testnews-616cd.firebaseio.com",
+    storageBucket: "testnews-616cd.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+
+  <script type="text/javascript">
+    function submitFeed() {
+      var newPostKey = firebase.database().ref().child('/list/buysell').push().key;
+      var feed = {
+        transaction: document.getElementById("transaction").value,
+        company: document.getElementById("company").value,
+        product: document.getElementById("product").value,
+        made: document.getElementById("made").value,
+        description: document.getElementById("description").value,
+        expected: document.getElementById("expected").value,
+        name: document.getElementById("name").value,
+        mobile: document.getElementById("mobile").value,
+        image: document.getElementById("image").value
+      }
+      var updates = {};
+      updates['/list/buysell/' + newPostKey] = feed;
+      firebase.database().ref().update(updates);
+    }
+  </script>
+</head>
+<body>
+  <form action="" autocomplete="on">
+    <p>enter 0 for buy and 1 for sell<p><br>
+    Transaction: <input type="text" id="transaction"><br>
+    Company:<input type="text" id="company"><br>
+    Product: <input type="text" id="product"><br>
+    Image: <input type="text" id="image"><br>
+    Made: <input type="text" id="made"><br>
+    Description: <textarea id="description" cols="40" rows="5"></textarea><br>
+    Expected:<input type="text" id="expected"><br>
+    Name:<input type="text" id="name"><br>
+    Mobile:<input type="text" id="mobile"><br>
+    <input type="button" onClick="submitFeed()" value="submit">
+  </form>
+</div>
+</body>
+</html>
