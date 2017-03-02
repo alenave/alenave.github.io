@@ -17,13 +17,12 @@
   <script type="text/javascript">
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/buysell').push().key;
-      var datetime = currentdate.getDate() + "/"
+      var datetime = currentdate.getFullYear() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getFullYear() + " "  
+                + currentdate.getDate() + " "  
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
-                alert(datetime);
       var feed = {
         transaction: document.getElementById("transaction").value,
         company: document.getElementById("company").value,
@@ -39,11 +38,13 @@
       var updates = {};
       updates['/list/buysell/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
+      document.buysell-form.reset();
+      alert("Submitted");
     }
   </script>
 </head>
 <body>
-  <form action="" autocomplete="on">
+  <form name="buysell-form" action="" autocomplete="on">
     <p>enter 0 for buy and 1 for sell<p><br>
     Transaction: <input type="text" id="transaction"><br>
     Company:<input type="text" id="company"><br>
