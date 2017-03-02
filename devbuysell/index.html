@@ -20,7 +20,7 @@
       var datetime = currentdate.getFullYear() + "-"
                 + (currentdate.getMonth()+1)  + "-" 
                 + currentdate.getDate() + " "  
-                + currentdate.getHours() + ":"  
+                + ("0" + date.getHours()).slice(-2) + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
       var feed = {
@@ -38,8 +38,8 @@
       var updates = {};
       updates['/list/buysell/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
-      document.buysell-form.reset();
       alert("Submitted");
+      document.buysell-form.reset();
       return false;
     }
   </script>
