@@ -18,8 +18,8 @@
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/buysell').push().key;
       var currentdate = new Date();
-      var datetime = currentdate.getFullYear() + "/"
-                + (currentdate.getMonth()+1)  + "/" 
+      var datetime = currentdate.getFullYear() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
                 + currentdate.getDate() + " "  
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
@@ -42,6 +42,7 @@
       firebase.database().ref().update(updates);
       document.buysell-form.reset();
       alert("Submitted");
+      return false;
     }
   </script>
 </head>
