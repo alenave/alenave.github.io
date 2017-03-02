@@ -27,7 +27,8 @@
         expected: document.getElementById("expected").value,
         name: document.getElementById("name").value,
         mobile: document.getElementById("mobile").value,
-        image: document.getElementById("image").value
+        image: document.getElementById("image").value,
+	postDate: document.getElementById("postDate").value
       }
       var updates = {};
       updates['/list/buysell/' + newPostKey] = feed;
@@ -47,6 +48,7 @@
     Expected:<input type="text" id="expected"><br>
     Name:<input type="text" id="name"><br>
     Mobile:<input type="text" id="mobile"><br>
+    Post Date:<input type="text" id="postDate"><br>
     <input type="button" onClick="submitFeed()" value="submit">
   </form>
 </div>
