@@ -19,11 +19,11 @@
       var newPostKey = firebase.database().ref().child('/list/buysell').push().key;
       var currentdate = new Date();
       var datetime = currentdate.getFullYear() + "-"
-                + (currentdate.getMonth()+1)  + "-" 
-                + currentdate.getDate() + " "  
+                + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
+                + ("0" + currentdate.getDate()).slice(-2) + " "  
                 + ("0" + currentdate.getHours()).slice(-2) + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
+                + ("0" + currentdate.getMinutes().slice(-2) + ":" 
+                + ("0" + currentdate.getSeconds().slice(-2);
       var feed = {
         transaction: document.getElementById("transaction").value,
         company: document.getElementById("company").value,
