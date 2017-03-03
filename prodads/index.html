@@ -17,8 +17,15 @@
   <script type="text/javascript">
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/ads').push().key;
+      var datetime = currentdate.getFullYear() + "-"
+                + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
+                + ("0" + currentdate.getDate()).slice(-2) + " "  
+                + ("0" + currentdate.getHours()).slice(-2) + ":"  
+                + ("0" + currentdate.getMinutes()).slice(-2) + ":" 
+                + ("0" + currentdate.getSeconds()).slice(-2);
       var feed = {
-        url: document.getElementById("ad").value
+        url: document.getElementById("ad").value,
+        postDate: datetime
       }
       var updates = {};
       updates['/list/ads/' + newPostKey] = feed;
