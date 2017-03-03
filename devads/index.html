@@ -16,12 +16,12 @@
 
   <script type="text/javascript">
     function submitFeed() {
-      var newPostKey = firebase.database().ref().child('/list/version').push().key;
+      var newPostKey = firebase.database().ref().child('/list/ads').push().key;
       var feed = {
-        version: document.getElementById("version").value,
+        url: document.getElementById("ad").value
       }
       var updates = {};
-      updates['/list/version/' + newPostKey] = feed;
+      updates['/list/ads/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
       alert("Submitted");
       return false;
@@ -30,7 +30,7 @@
 </head>
 <body>
   <form action="" autocomplete="on">
-    Version:<input type="text" id="version" name="version"><br>
+    Ad Url:<input type="text" id="ad" name="ad"><br>
     <input type="button" onClick="submitFeed()" value="submit">
   </form>
 </div>
