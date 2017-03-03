@@ -6,24 +6,24 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyAiIFdbrRj9f4fQyNQZtb4fGbbekxNE6iQ",
-    authDomain: "testnews-616cd.firebaseapp.com",
-    databaseURL: "https://testnews-616cd.firebaseio.com",
-    storageBucket: "testnews-616cd.appspot.com",
+    apiKey: "AIzaSyB1JhVyd-41qYSwVatINq4AXxGmzU2hDIA",
+    authDomain: "apna-jalaun-prod.firebaseio.com",
+    databaseURL: "https://apna-jalaun-prod.firebaseio.com",
+    storageBucket: "apna-jalaun-prod.appspot.com",
   };
   firebase.initializeApp(config);
 </script>
 
   <script type="text/javascript">
     function submitFeed() {
-      var newPostKey = firebase.database().ref().child('/list/allnews').push().key;
+      var newPostKey = firebase.database().ref().child('/list/channels').push().key;
       var feed = {
         name: document.getElementById("name").value,
         image: document.getElementById("image").value,
         url: document.getElementById("url").value
       }
       var updates = {};
-      updates['/list/allnews/' + newPostKey] = feed;
+      updates['/list/channels/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
     }
   </script>

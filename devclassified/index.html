@@ -6,18 +6,17 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyB1JhVyd-41qYSwVatINq4AXxGmzU2hDIA",
-    authDomain: "apna-jalaun-prod.firebaseio.com",
-    databaseURL: "https://apna-jalaun-prod.firebaseio.com",
-    storageBucket: "apna-jalaun-prod.appspot.com",
+    apiKey: "AIzaSyAiIFdbrRj9f4fQyNQZtb4fGbbekxNE6iQ",
+    authDomain: "testnews-616cd.firebaseapp.com",
+    databaseURL: "https://testnews-616cd.firebaseio.com",
+    storageBucket: "testnews-616cd.appspot.com",
   };
   firebase.initializeApp(config);
 </script>
 
   <script type="text/javascript">
     function submitFeed() {
-      var newPostKey = firebase.database().ref().child('/list/buysell').push().key;
-      var currentdate = new Date();
+      var newPostKey = firebase.database().ref().child('/list/classified').push().key;
       var datetime = currentdate.getFullYear() + "-"
                 + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
                 + ("0" + currentdate.getDate()).slice(-2) + " "  
@@ -35,10 +34,9 @@
         mobile: document.getElementById("mobile").value,
         image: document.getElementById("image").value,
 	      postDate: datetime
-	      
       }
       var updates = {};
-      updates['/list/buysell/' + newPostKey] = feed;
+      updates['/list/classified/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
       alert("Submitted");
       document.buysell-form.reset();
