@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>All News</title>
+	<title>News</title>
   <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -16,14 +16,12 @@
 
   <script type="text/javascript">
     function submitFeed() {
-      var newPostKey = firebase.database().ref().child('/list/channels').push().key;
+      var newPostKey = firebase.database().ref().child('/list/ads').push().key;
       var feed = {
-        name: document.getElementById("name").value,
-        image: document.getElementById("image").value,
-        url: document.getElementById("url").value
+        version: document.getElementById("ad").value,
       }
       var updates = {};
-      updates['/list/channels/' + newPostKey] = feed;
+      updates['/list/ads/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
       alert("Submitted");
       return false;
@@ -32,9 +30,7 @@
 </head>
 <body>
   <form action="" autocomplete="on">
-    Channel Name:<input type="text" id="name" name="name"><br>
-    Image: <input type="text" id="image" name="image"><br>
-    Url: <input type="text" id="url" name="url"><br>
+    Ad Url:<input type="text" id="version" name="ad"><br>
     <input type="button" onClick="submitFeed()" value="submit">
   </form>
 </div>
