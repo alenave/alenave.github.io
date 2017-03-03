@@ -25,7 +25,6 @@
                 + ("0" + currentdate.getMinutes()).slice(-2) + ":" 
                 + ("0" + currentdate.getSeconds()).slice(-2);
       var feed = {
-        transaction: document.getElementById("transaction").value,
         company: document.getElementById("company").value,
         product: document.getElementById("product").value,
         made: document.getElementById("made").value,
@@ -48,8 +47,6 @@
 </head>
 <body>
   <form name="buysell-form" action="" autocomplete="on">
-    <p>enter 0 for buy and 1 for sell<p><br>
-    Transaction: <input type="text" id="transaction"><br>
     Company:<input type="text" id="company"><br>
     Product: <input type="text" id="product"><br>
     Image: <input type="text" id="image"><br>
