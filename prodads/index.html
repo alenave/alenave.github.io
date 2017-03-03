@@ -17,6 +17,7 @@
   <script type="text/javascript">
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/ads').push().key;
+      var currentdate = new Date();
       var datetime = currentdate.getFullYear() + "-"
                 + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
                 + ("0" + currentdate.getDate()).slice(-2) + " "  
