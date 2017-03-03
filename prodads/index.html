@@ -18,7 +18,7 @@
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/ads').push().key;
       var feed = {
-        version: document.getElementById("ad").value,
+        version: document.getElementById("ad").value
       }
       var updates = {};
       updates['/list/ads/' + newPostKey] = feed;

@@ -18,7 +18,7 @@
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/version').push().key;
       var feed = {
-        version: document.getElementById("version").value,
+        version: document.getElementById("version").value
       }
       var updates = {};
       updates['/list/version/' + newPostKey] = feed;
