@@ -25,9 +25,12 @@
                 + ("0" + currentdate.getMinutes()).slice(-2) + ":" 
                 + ("0" + currentdate.getSeconds()).slice(-2);
       var feed = {
-        url: document.getElementById("ad").value,
+        image: document.getElementById("ad").value,
         publishedAt: datetime,
-        sourceName: "Ad"
+        sourceName: "Ad",
+        title: "",
+        description: "",
+        sourceUrl: ""
       }
       var updates = {};
       updates['/list/ads/' + newPostKey] = feed;
