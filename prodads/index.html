@@ -26,7 +26,8 @@
                 + ("0" + currentdate.getSeconds()).slice(-2);
       var feed = {
         url: document.getElementById("ad").value,
-        publishedAt: datetime
+        publishedAt: datetime,
+        sourceName: "Ad"
       }
       var updates = {};
       updates['/list/ads/' + newPostKey] = feed;
