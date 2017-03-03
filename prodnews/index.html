@@ -36,6 +36,8 @@
       var updates = {};
       updates['/list/news/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
+      alert("Submitted");
+      return false;
     }
   </script>
 </head>
