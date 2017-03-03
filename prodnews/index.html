@@ -17,11 +17,20 @@
   <script type="text/javascript">
     function submitFeed() {
       var newPostKey = firebase.database().ref().child('/list/news').push().key;
+      var currentdate = new Date();
+      var datetime = currentdate.getFullYear() + "-"
+                + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
+                + ("0" + currentdate.getDate()).slice(-2) + " "  
+                + ("0" + currentdate.getHours()).slice(-2) + ":"  
+                + ("0" + currentdate.getMinutes()).slice(-2) + ":" 
+                + ("0" + currentdate.getSeconds()).slice(-2);
       var feed = {
         title: document.getElementById("title").value,
         description: document.getElementById("description").value,
         image: document.getElementById("image").value,
-        newssource: document.getElementById("newssource").value
+        sourceUrl: document.getElementById("sourceurl").value,
+        sourceName: document.getElementById("sourcename").value,
+        publishedAt: datetime
       }
       var updates = {};
       updates['/list/news/' + newPostKey] = feed;
@@ -33,7 +42,8 @@
   <form action="" autocomplete="on">
     Title:<input type="text" id="title" name="title"><br>
     Image: <input type="text" id="image" name="image"><br>
-    News Source: <input type="text" id="newssource" name="newssource"><br>
+    News Source: <input type="text" id="sourceurl" name="sourceurl"><br>
+    Source Name: <input type="text" id="sourcename" name="sourcename"><br>
     Description: <textarea id="description" name="description" cols="40" rows="5"></textarea><br>
     <input type="button" onClick="submitFeed()" value="submit">
   </form>
