@@ -30,7 +30,8 @@
         image: document.getElementById("image").value,
         sourceUrl: document.getElementById("sourceurl").value,
         sourceName: document.getElementById("sourcename").value,
-        publishedAt: datetime
+        publishedAt: datetime,
+        sortPublishAt: ""
       }
       var updates = {};
       updates['/list/news/' + newPostKey] = feed;
