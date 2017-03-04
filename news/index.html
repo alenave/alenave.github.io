@@ -6,17 +6,17 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyB1JhVyd-41qYSwVatINq4AXxGmzU2hDIA",
-    authDomain: "apna-jalaun-prod.firebaseio.com",
-    databaseURL: "https://apna-jalaun-prod.firebaseio.com",
-    storageBucket: "apna-jalaun-prod.appspot.com",
+    apiKey: "AIzaSyAHqqz0rFhgIRbIMQ5kaKIbFmrnL1ttuxs",
+    authDomain: "apna-jalaun.firebaseio.com",
+    databaseURL: "https://apna-jalaun.firebaseio.com",
+    storageBucket: "apna-jalaun.appspot.com",
   };
   firebase.initializeApp(config);
 </script>
 
   <script type="text/javascript">
     function submitFeed() {
-      var newPostKey = firebase.database().ref().child('/list/news').push().key;
+      var newPostKey = firebase.database().ref().child('/list/feeds').push().key;
       var currentdate = new Date();
       var datetime = currentdate.getFullYear() + "-"
                 + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
@@ -34,7 +34,7 @@
         sortPublishAt: ""
       }
       var updates = {};
-      updates['/list/news/' + newPostKey] = feed;
+      updates['/list/feeds/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
       alert("Submitted");
       return false;
