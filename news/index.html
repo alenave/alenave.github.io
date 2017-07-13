@@ -16,7 +16,7 @@
 
   <script type="text/javascript">
     function submitFeed() {
-      var newPostKey = firebase.database().ref().child('/list/feeds').push().key;
+      var newPostKey = firebase.database().ref().child('/list/news').push().key;
       var currentdate = new Date();
       var datetime = currentdate.getFullYear() + "-"
                 + ("0" + (currentdate.getMonth()+1)).slice(-2)  + "-" 
@@ -34,7 +34,7 @@
         sortPublishAt: ""
       }
       var updates = {};
-      updates['/list/feeds/' + newPostKey] = feed;
+      updates['/list/news/' + newPostKey] = feed;
       firebase.database().ref().update(updates);
       alert("Submitted");
       return false;
