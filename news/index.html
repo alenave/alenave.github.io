@@ -28,7 +28,8 @@
         title: document.getElementById("title").value,
         description: document.getElementById("description").value,
         image: document.getElementById("image").value,
-        sourceUrl: document.getElementById("sourceurl").value,
+//         sourceUrl: document.getElementById("sourceurl").value,
+	sourceUrl: document.getElementById("sourcename").value,
         sourceName: document.getElementById("sourcename").value,
         publishedAt: datetime,
         sortPublishAt: ""
@@ -45,7 +46,7 @@
   <form action="" autocomplete="on">
     Title:<input type="text" id="title" name="title"><br>
     Image: <input type="text" id="image" name="image"><br>
-    News Source: <input type="text" id="sourceurl" name="sourceurl"><br>
+<!--     News Source: <input type="text" id="sourceurl" name="sourceurl"><br> -->
     Source Name: <input type="text" id="sourcename" name="sourcename"><br>
     Description: <textarea id="description" name="description" cols="40" rows="5"></textarea><br>
     <input type="button" onClick="submitFeed()" value="submit">
